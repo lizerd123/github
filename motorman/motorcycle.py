@@ -1,6 +1,7 @@
 import sys, pygame, pygame.mixer
 from pygame.locals import *
 import random
+
 pygame.init()
 import time
 pygame.key.set_repeat(25,25)
@@ -11,7 +12,7 @@ ex=pygame.image.load("caution.png")
 doom=pygame.image.load("doom.png")
 dx=670
 dy=100
-posx=50
+posx=200
 posy=460
 bx=800
 bh=15
@@ -21,6 +22,8 @@ screen=pygame.display.set_mode((900,700))
 x=0
 back=pygame.image.load("1.png")
 while True:
+	pygame.draw.rect(screen,(225,0,0),(0,0,900,100))
+	pygame.draw.rect(screen,(0,225,0),(0,0,bh*60,100))
 	screen.blit(doom,(0,400))
 	if posx<=0:
 		print(" __   __  _______  __   __    ______   ___   _______  ______")  
@@ -46,12 +49,12 @@ while True:
 	firepiller=random.randrange(0,15)
 	if firepiller==1:
 		dy=350
-		fx=random.randrange(0,670)
+		fx=random.randrange(100,670)
 		go=1
 	if go > 0:
 		go+=1
 		if go < 12:
-			screen.blit(ex,(fx,400))
+			screen.blit(ex,(fx,500))
 		if 12<go<25:
 			screen.blit(doom,(fx,400))
 			if posx-70<fx<posx+200:
