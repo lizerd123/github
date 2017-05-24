@@ -17,13 +17,17 @@ bx=800
 bh=15
 go=0
 print(bh)
-#fpx=random.randrange(0, 600)
 screen=pygame.display.set_mode((900,700))
 x=0
 back=pygame.image.load("1.png")
 while True:
 	if bh<=0:
-		print("BEAST SLAIN")
+		print(" ____    ______           _____ _______    _____ _               _____ _   _ ")
+ 		print("|  _ \  |  ____|   /\    / ____|__   __|  / ____| |        /\   |_   _| \ | |")
+ 		print("| |_) | | |__     /  \  | (___    | |    | (___ | |       /  \    | | |  \| |")
+ 		print("|  _ <  |  __|   / /\ \  \___ \   | |     \___ \| |      / /\ \   | | | . ` |")
+ 		print("| |_) | | |____ / ____ \ ____) |  | |     ____) | |____ / ____ \ _| |_| |\  |")
+ 		print("|____/  |______/_/    \_\_____/   |_|    |_____/|______/_/    \_\_____|_| \_|")
 		sys.exit()
 
 
@@ -40,7 +44,13 @@ while True:
 		if 12<go<25:
 			screen.blit(doom,(fx,400))
 			if posx-70<fx<posx+200:
-				print("YOU DIED")
+				print(" __   __  _______  __   __    ______   ___   _______  ______")  
+				print("|  | |  ||       ||  | |  |  |      | |   | |       ||      |") 
+				print("|  |_|  ||   _   ||  | |  |  |  __   ||   | |    ___||  __   |")
+				print("|       ||  | |  ||  | |  |  | |  |  ||   | |   |___ | |  |  |")
+				print("|_     _||  |_|  ||  | |  |  | |__|  ||   | |    ___|| |__|  |")
+				print("  |   |  |       ||  |_|  |  |       ||   | |   |___ |       |")
+				print("  |___|  |_______||_______|  |______| |___| |_______||______|")
 				sys.exit()
 		if go >25:
 			go=0
@@ -48,7 +58,13 @@ while True:
 
 
 
-	
+	if x>450:
+		no+=1
+		if no < 12:
+			screen.blit(ex,(600,400))
+		if 12<no<25:
+			screen.blit(doom,(600,400))
+
 	bx+=100
 	screen.blit(bullet,(bx,400))
 	screen.blit(deamon,(dx,dy))
