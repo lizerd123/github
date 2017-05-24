@@ -14,7 +14,7 @@ dy=100
 posx=50
 posy=460
 bx=800
-bh=10
+bh=15
 go=0
 print(bh)
 #fpx=random.randrange(0, 600)
@@ -26,18 +26,20 @@ while True:
 		print("BEAST SLAIN")
 		sys.exit()
 
-	firepiller=random.randrange(0,60)
+
+
+	firepiller=random.randrange(0,15)
 	if firepiller==1:
 		dy=350
 		fx=random.randrange(0,670)
 		go=1
 	if go > 0:
 		go+=1
-		if go < 15:
+		if go < 12:
 			screen.blit(ex,(fx,400))
-		if 15<go<25:
+		if 12<go<25:
 			screen.blit(doom,(fx,400))
-			if posx<fx<posx+150:
+			if posx-70<fx<posx+200:
 				print("YOU DIED")
 				sys.exit()
 		if go >25:
@@ -59,9 +61,9 @@ while True:
 			sys.exit()
 		if event.type == KEYDOWN:
 			if event.key==K_LEFT:
-				posx=posx-20
+				posx=posx-27
 			if event.key==K_RIGHT:
-				posx=posx+20
+				posx=posx+27
 			if event.key==K_SPACE and bx>700:
 				bx=posx
 	if dx<bx<dx+100 and dy<400<dy+100:
