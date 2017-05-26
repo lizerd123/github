@@ -97,9 +97,9 @@ while True:
 		if event.type == pygame.QUIT:
 			sys.exit()
 		if event.type == KEYDOWN:
-			if event.key==K_LEFT:
+			if event.key==K_a or event.key==K_LEFT:
 				posx=posx-27
-			if event.key==K_RIGHT:
+			if event.key==K_d or event.key==K_RIGHT:
 				posx=posx+27
 			if event.key==K_SPACE and bx>700:
 				bx=posx
