@@ -26,15 +26,15 @@ if difficulty==1 and go<1:
 	r2=29
 if difficulty==2 and go<1:
 	bh=random.randrange(20,30)
-	r1=10
+	r1=11
 	r2=27
 if difficulty==3 and go<1:
 	bh=random.randrange(30,40)
-	r1=9
+	r1=10
 	r2=25
 if difficulty==4 and go<1:
 	bh=random.randrange(40,50)
-	r1=8
+	r1=10
 	r2=23
 ticks=900/bh
 go=0
@@ -125,9 +125,9 @@ while True:
 			sys.exit()
 		if event.type == KEYDOWN:
 			if event.key==K_a or event.key==K_LEFT:
-				posx=posx-33
+				posx=posx-40
 			if event.key==K_d or event.key==K_RIGHT:
-				posx=posx+33
+				posx=posx+40
 			if event.key==K_SPACE and bx>700:
 				bx=posx
 	if dx<bx<dx+125 and dy<400<dy+100:
