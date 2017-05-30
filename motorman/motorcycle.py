@@ -14,20 +14,28 @@ bullet=pygame.image.load("bullet.png")
 ex=pygame.image.load("caution.png")
 doom=pygame.image.load("doom.png")
 intro=pygame.image.load("instructions.png")
-
+go=0
 dx=670
 dy=100
 posx=200
 posy=460
 bx=800
-if difficulty==1:
+if difficulty==1 and go<1:
 	bh=random.randrange(10,20)
-if difficulty==2:
+	r1=12
+	r2=29
+if difficulty==2 and go<1:
 	bh=random.randrange(20,30)
-if difficulty==3:
+	r1=10
+	r2=27
+if difficulty==3 and go<1:
 	bh=random.randrange(30,40)
-if difficulty==4:
+	r1=9
+	r2=25
+if difficulty==4 and go<1:
 	bh=random.randrange(40,50)
+	r1=8
+	r2=23
 ticks=900/bh
 go=0
 print(bh)
@@ -40,6 +48,14 @@ screen.blit(intro,(0,0))
 
 
 while True:
+	if difficulty==1:
+		firepiller=random.randrange(0,26)
+	if difficulty==2:
+		firepiller=random.randrange(0,23)
+	if difficulty==3:
+		firepiller=random.randrange(0,18)
+	if difficulty==4:
+		firepiller=random.randrange(0,13)
 	pygame.draw.rect(screen,(225,0,0),(0,0,900,100))
 	pygame.draw.rect(screen,(0,225,0),(0,0,bh*ticks,100))
 	screen.blit(doom,(0,400))
@@ -64,16 +80,16 @@ while True:
 
 
 
-	firepiller=random.randrange(0,18)
-	if firepiller==1:
+	
+	if firepiller==1 and go<1:
 		dy=350
 		fx=random.randrange(100,670)
 		go=1
 	if go > 0:
 		go+=1
-		if go < 12:
+		if go < r1:
 			screen.blit(ex,(fx,500))
-		if 12<go<25:
+		if r1<go<r2:
 			screen.blit(doom,(fx,400))
 			if posx-70<fx<posx+200:
 				print("' __   __  _______  __   __    ______   ___   _______  ______  '")  
@@ -84,7 +100,7 @@ while True:
 				print("'  |   |  |       ||  |_|  |  |       ||   | |   |___ |       |'")
 				print("'  |___|  |_______||_______|  |______/ |___| |_______||______/ '")
 				sys.exit()
-		if go >25:
+		if go >r2:
 			go=0
 			dy=100
 
