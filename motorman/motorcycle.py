@@ -1,9 +1,12 @@
 import sys, pygame, pygame.mixer
 from pygame.locals import *
 import random
-
-pygame.init()
 import time
+print("'You must hunt down the beast that has plauged this land, do so using arrow keys or A and D to accelerate or decellerate, use space to fire, take cation in doing so as it will prevent you from speeding up'")
+print("(1)easy,(2)medium,(3)hard,(4)NIGHTMARE")
+difficulty=input()
+pygame.init()
+
 pygame.key.set_repeat(25,25)
 person = pygame.image.load("motorman.png")
 deamon=pygame.image.load("deamon.png")
@@ -17,7 +20,15 @@ dy=100
 posx=200
 posy=460
 bx=800
-bh=15
+if difficulty==1:
+	bh=random.randrange(10,20)
+if difficulty==2:
+	bh=random.randrange(20,30)
+if difficulty==3:
+	bh=random.randrange(30,40)
+if difficulty==4:
+	bh=random.randrange(40,50)
+ticks=900/bh
 go=0
 print(bh)
 screen=pygame.display.set_mode((900,700))
@@ -25,21 +36,21 @@ x=0
 back=pygame.image.load("1.png")
 screen.blit(intro,(0,0))
 
-pygame.display.flip()
 
-time.sleep(5)
+
+
 while True:
 	pygame.draw.rect(screen,(225,0,0),(0,0,900,100))
-	pygame.draw.rect(screen,(0,225,0),(0,0,bh*60,100))
+	pygame.draw.rect(screen,(0,225,0),(0,0,bh*ticks,100))
 	screen.blit(doom,(0,400))
 	if posx<=0:
 		print('" __   __  _______  __   __    ______   ___   _______  ______  "')  
-		print('"|  | |  ||       ||  | |  |  |      | |   | |       ||      | "') 
+		print('"|  | |  ||       ||  | |  |  |      \ |   | |       ||      \ "') 
 		print('"|  | |  ||   _   ||  | |  |  |  __   ||   | |    ___||  __   |"')
-		print('"|  |_|  ||  | |  ||  | |  |  | |  |  ||   | |   |___ | |  |  |"')
-		print('" \     / |  |_|  ||  | |  |  | |__|  ||   | |    ___|| |__|  |"')
+		print('"|  |_|  ||  | |  ||  | |  |  | |  \  ||   | |   |___ | |  \  |"')
+		print('" \     / |  |_|  ||  | |  |  | |__/  ||   | |    ___|| |__/  |"')
 		print('"  |   |  |       ||  |_|  |  |       ||   | |   |___ |       |"')
-		print('"  |___|  |_______||_______|  |______| |___| |_______||______| "')
+		print('"  |___|  |_______||_______|  |______/ |___| |_______||______/ "')
 		sys.exit()
 
 	if bh<=0:
@@ -66,12 +77,12 @@ while True:
 			screen.blit(doom,(fx,400))
 			if posx-70<fx<posx+200:
 				print("' __   __  _______  __   __    ______   ___   _______  ______  '")  
-				print("'|  | |  ||       ||  | |  |  |      | |   | |       ||      | '") 
+				print("'|  | |  ||       ||  | |  |  |      \ |   | |       ||      \ '") 
 				print("'|  | |  ||   _   ||  | |  |  |  __   ||   | |    ___||  __   |'")
-				print("'|  |_|  ||  | |  ||  | |  |  | |  |  ||   | |   |___ | |  |  |'")
-				print("' \     / |  |_|  ||  | |  |  | |__|  ||   | |    ___|| |__|  |'")
+				print("'|  |_|  ||  | |  ||  | |  |  | |  \  ||   | |   |___ | |  \  |'")
+				print("' \     / |  |_|  ||  | |  |  | |__/  ||   | |    ___|| |__/  |'")
 				print("'  |   |  |       ||  |_|  |  |       ||   | |   |___ |       |'")
-				print("'  |___|  |_______||_______|  |______| |___| |_______||______| '")
+				print("'  |___|  |_______||_______|  |______/ |___| |_______||______/ '")
 				sys.exit()
 		if go >25:
 			go=0
@@ -98,12 +109,12 @@ while True:
 			sys.exit()
 		if event.type == KEYDOWN:
 			if event.key==K_a or event.key==K_LEFT:
-				posx=posx-27
+				posx=posx-33
 			if event.key==K_d or event.key==K_RIGHT:
-				posx=posx+27
+				posx=posx+33
 			if event.key==K_SPACE and bx>700:
 				bx=posx
-	if dx<bx<dx+100 and dy<400<dy+100:
+	if dx<bx<dx+125 and dy<400<dy+100:
 		bh-=1
 
 		
