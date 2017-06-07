@@ -8,6 +8,8 @@ hero=pygame.image.load("hero.png")
 menu=pygame.image.load("menuNEXT.png")
 monster=pygame.image.load("monster.png")
 knife=pygame.image.load("knifew.png")
+ones=pygame.image.load("1n.png")
+tens=pygame.image.load("0n.png")
 pygame.init()
 hx=225
 hy=100
@@ -25,10 +27,16 @@ my=300
 screen=pygame.display.set_mode((500,500))
 pygame.key.set_repeat(25,25)
 while True:
+	ten=int(level/10)
+
 	
 	pygame.display.flip()
 	screen.blit(ground,(0,0))
-	
+	tens=pygame.image.load(str(ten)+"n.png")
+	one=level-(ten*10+1)
+	ones=pygame.image.load(str(one)+"n.png")
+	screen.blit(ones,(110,0))
+	screen.blit(tens,(0,0))
 	
 	if begin==1 and enemies>=0:
 		screen.blit(monster,(mx,my))
