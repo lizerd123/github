@@ -1,3 +1,4 @@
+
 import sys, pygame, pygame.mixer
 from pygame.locals import *
 import random
@@ -13,7 +14,7 @@ deamon=pygame.image.load("deamon.png")
 bullet=pygame.image.load("bullet.png")
 ex=pygame.image.load("caution.png")
 doom=pygame.image.load("doom.png")
-intro=pygame.image.load("instructions.png")
+
 go=0
 dx=670
 dy=100
@@ -42,7 +43,7 @@ print(bh)
 screen=pygame.display.set_mode((900,700))
 x=0
 back=pygame.image.load("1.png")
-screen.blit(intro,(0,0))
+
 
 
 
