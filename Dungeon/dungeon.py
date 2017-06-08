@@ -128,7 +128,7 @@ while True:
 					print("coins:" + str(coin))
 				if men==1 and event.key==K_RETURN and r==1:
 					x=random.randint(1,5)
-					ground=pygame.image.load(str(x)+".png")
+					ground=pygame.image.load(str(x)+"b.png")
 					enemies=1
 					screen.blit(ground,(0,0))
 					begin=1
