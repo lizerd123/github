@@ -1,7 +1,7 @@
 game_chosen=0
 begin_game=0
 while begin_game!=1:
-		print("play (1) motorman (2) Dungeon (3) Shop'n'Stab (4)Duel")
+		print("play (1) motorman(one player) (2) Dungeon(one player) (3) Shop'n'Stab(one player) (4)Duel(two player)")
 		game_chosen=input("what to play... ")
 		if game_chosen==1 or 2:
 			begin_game=1
@@ -190,7 +190,6 @@ if game_chosen==2:
 			ones=pygame.image.load(str(one)+"n.png")
 			screen.blit(ones,(110,0))
 			screen.blit(tens,(0,0))
-			
 			if begin==1 and enemies>=0:
 				screen.blit(monster,(mx,my))
 				if hx-mx>0:
@@ -261,7 +260,7 @@ if game_chosen==2:
 					if event.key==K_RIGHT:
 						menu=pygame.image.load("menuUP.png")
 						r=0
-					if event.key==K_SPACE and fire==0:
+					if event.key==K_SPACE and fire==0 and enemies>0:
 						kx=hx
 						ky=hy
 						screen.blit(knife,(kx,ky))
