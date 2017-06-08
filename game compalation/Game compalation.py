@@ -1,14 +1,11 @@
-potato=1
-if potato==1:
-
-	game_chosen=0
-	begin_game=0
-	while begin_game!=1:
-		print("play (1) motorman (2) Dungeon (3) Shop'n'Stab")
+game_chosen=0
+begin_game=0
+while begin_game!=1:
+		print("play (1) motorman (2) Dungeon (3) Shop'n'Stab (4)Duel")
 		game_chosen=input("what to play... ")
 		if game_chosen==1 or 2:
 			begin_game=1
-	if game_chosen==1:
+if game_chosen==1:
 		import sys, pygame, pygame.mixer
 		from pygame.locals import *
 		import random
@@ -153,7 +150,7 @@ if potato==1:
 			back=pygame.image.load(str(x)+".png")
 			if x==54:
 				x=1
-	if game_chosen==2:
+if game_chosen==2:
 		import sys, pygame, pygame.mixer
 		from pygame.locals import *
 		import random
@@ -290,7 +287,7 @@ if potato==1:
 							begin=1
 							mx=random.randint(0,100) or random.randint(400,500)
 							my=random.randint(0,100) or random.randint(400,500)
-	if game_chosen==3:
+if game_chosen==3:
 		from random import randint as ri
 		inv=[]
 		st=1
@@ -497,5 +494,148 @@ if potato==1:
 		                print(mh)
 		        print ("enemy")
 		        print (eh)
-		        sa = sa +10
-		    
+		        sa = sa +10		    
+if game_chosen==4:
+	p1h=5
+	p2h=5
+	p1p=4
+	p2p=2
+	moves1=3
+	moves2=3
+	space=1
+	p1w=raw_input("P1 Weapon: ")
+	if p1w == "axe":
+	  p1min=-1
+	  p1max=1
+	if p1w == "longsword":
+	  p1min=0
+	  p1max=2
+	if p1w == "spear":
+	  p1min=1
+	  p1max=3
+	p2w=raw_input("P2 Weapon: ")
+	if p2w == "axe":
+	  p2min=-1
+	  p2max=1
+	if p2w == "longsword":
+	  p2min=0
+	  p2max=2
+	if p2w == "spear":
+	  p2min=1
+	  p2max=3
+	while p1h>0 or p2h>0:
+	  while moves1>0:
+	    if p2p==1:
+	      if p1p==2:
+	        print("X O_ _ _")
+	      if p1p==3:
+	        print("X _ O _ _")
+	      if p1p==4:
+	        print("X _ _ O _")
+	      if p1p==5:
+	        print("X _ _ _ O")
+	    if p2p==2:
+	      if p1p==3:
+	        print("_ X O _ _")
+	      if p1p==4:
+	        print("_ X _ O _")
+	      if p1p==5:
+	        print("_ X _ _ O")
+	    if p2p==3:
+	      if p1p==4:
+	        print("_ _ X O _")
+	      if p1p==5:
+	        print("_ _ X _ O")
+	    if p2p==4:
+	      if p1p==5:
+	        print("_ _ _ X O")
+	      
+	    print (moves1)
+	    action1=raw_input("action P1")
+	    if action1 == "back":
+	      if p1p == 5:
+	        print("my back is against the wall")
+	      if p1p<5:
+	        moves1=moves1-1
+	        p1p=p1p+1
+	        space=space+1
+	    if action1 == "forwards":
+	      if space == 0:
+	        print("cant move past the enemy")
+	      if space>0:
+	        space=space-1
+	        p1p=p1p-1
+	        print("I moved forwards")
+	        moves1=moves1-1
+	    if action1 == "attack":
+	      if space>p1min and space<p1max:
+	        p2h=p2h-1
+	        moves1=moves1-1
+	        print("Hit")
+	      if space<=p1min or space>=p1max:
+	        print("out of my range")
+	    if action1 == "shove":
+	      if space==0:
+	        moves1=moves1-1
+	        print("I shoved him back")
+	        p2p=p2p-1
+	        space=space+1
+	  while moves2>0:
+	    if p2p==1:
+	      if p1p==2:
+	        print("X O_ _ _")
+	      if p1p==3:
+	        print("X _ O _ _")
+	      if p1p==4:
+	        print("X _ _ O _")
+	      if p1p==5:
+	        print("X _ _ _ O")
+	    if p2p==2:
+	      if p1p==3:
+	        print("_ X O _ _")
+	      if p1p==4:
+	        print("_ X _ O _")
+	      if p1p==5:
+	        print("_ X _ _ O")
+	    if p2p==3:
+	      if p1p==4:
+	        print("_ _ X O _")
+	      if p1p==5:
+	        print("_ _ X _ O")
+	    if p2p==4:
+	      if p1p==5:
+	        print("_ _ _ X O")
+	      
+	    print (moves2)
+	    action2=raw_input("action P2")
+	    if action2 == "back":
+	      if p2p == 1:
+	        print("my back is against the wall")
+	      if p1p>1:
+	        moves2=moves2-1
+	        p2p=p2p-1
+	        space=space+1
+	    if action2 == "forwards":
+	      if space == 0:
+	        print("cant move past the enemy")
+	      if space>0:
+	        space=space-1
+	        p2p=p2p+1
+	        print("I moved forwards")
+	        moves2=moves2-1
+	    if action2 == "attack":
+	      if space>p2min and space<p2max:
+	        p1h=p1h-1
+	        moves2=moves2-1
+	        print("Hit")
+	      if space<=p2min or space>=p2max:
+	        print("out of my range")
+	    if action2 == "shove":
+	      if space==0:
+	        moves2=moves2-1
+	        print("I shoved him back")
+	        p1p=p1p+1
+	        space=space+1
+
+
+	  
