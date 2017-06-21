@@ -199,13 +199,13 @@ while True:
 				if begin==1 and enemies>=0:
 					screen.blit(monster,(mx,my))
 					if hx-mx>0:
-						mx+=coinneeded/10
+						mx+=coinneeded/20
 					if hx-mx<0:
-						mx-=coinneeded/10
+						mx-=coinneeded/20
 					if hy-my>0:
-						my+=coinneeded/10
+						my+=coinneeded/20
 					if hy-my<0:
-						my-=coinneeded/10
+						my-=coinneeded/20
 					if my<hy<my+75 and mx<hx<mx+50:
 						print("you died at level " + str(level))
 						running=0
@@ -646,12 +646,5 @@ while True:
 			        moves2=moves2-1
 			        print("I shoved him back")
 			        p1p=p1p+1
-			        space=space+1
-
-
-		  
-
-
-
-		 
+			        space=space+1	 
 	begin_game=0
