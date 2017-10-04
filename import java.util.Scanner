@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class Exercise1MF {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner snum = new Scanner(System.in);
+		int num = 0;
+		//AREA OF A CIRCLE
+		System.out.print("Input the radius of you circle:");
+		num=snum.nextInt();
+		System.out.println("The area of this circle is: "+(22.0/7.0)*(num*num));
+		//two
+		int m = 0;
+		int b = 0;
+		int x = 0;
+		System.out.print("Input the M value:");
+		m=snum.nextInt();
+		System.out.print("Input the B value:");
+		b=snum.nextInt();
+		System.out.print("Input the X value:");
+		x=snum.nextInt();
+		
+		
+		System.out.println("the y value is: " +(m*x+b));
+			
+		}
+
+	}
+
+
